@@ -1,10 +1,10 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
       "title": "json-server",
       "price": 21,
-      "img": "awe",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
       "type": "action"
     }
   ]
