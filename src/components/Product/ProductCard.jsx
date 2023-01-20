@@ -7,8 +7,12 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useProduct } from "../../contexts/ProductContextProvider";
 
 const ProductCard = ({ item }) => {
+  const { deleteProduct } = useProduct();
+  const navigate = useNavigate();
   return (
     <Card>
       <CardMedia
@@ -30,8 +34,12 @@ const ProductCard = ({ item }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Delete</Button>
-        <Button size="small">Edit</Button>
+        <Button size="small" onClick={() => deleteProduct(item.id)}>
+          Delete
+        </Button>
+        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+          Edit
+        </Button>
       </CardActions>
     </Card>
   );
