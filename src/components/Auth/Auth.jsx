@@ -1,7 +1,7 @@
 import React from "react";
 
 const Auth = () => {
-  return <div></div>;
+  return <div>Sardor | Isken | Mira</div>;
 };
 
 export default Auth;
