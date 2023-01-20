@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  let a = 1;
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
