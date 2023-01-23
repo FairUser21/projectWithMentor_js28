@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  let a = 1;
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -53,7 +53,7 @@ const Navbar = () => {
             >
               <img
                 id="logo"
-                src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+                // src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
                 alt=""
               />
             </Typography>
@@ -115,7 +115,7 @@ const Navbar = () => {
             >
               <img
                 id="logo"
-                src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+                // src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
                 alt=""
               />
             </Typography>
