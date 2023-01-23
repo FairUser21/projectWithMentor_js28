@@ -1,18 +1,44 @@
-import { Container, Grid, Typography } from "@mui/material";
+import {
+  Container,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  InputAdornment,
+  Paper,
+  Radio,
+  RadioGroup,
+  TextField,
+  Typography,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { Box } from "@mui/system";
 import React from "react";
 import { useEffect } from "react";
 import { useProduct } from "../../contexts/ProductContextProvider";
 import ProductCard from "./ProductCard";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 const ProductList = () => {
-  const { products, getProducts } = useProduct();
+  const { products, getProducts, fetchByParams } = useProduct();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
     getProducts();
   }, []);
-  
-  console.log(products);
+
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
+
   return (
     <Container>
       <Box>
@@ -38,6 +64,54 @@ const ProductList = () => {
                 <h2>Loading...</h2>
               )}
             </Box>
+          </Grid>
+          <Grid item md={3}>
+            <Paper>
+              <TextField
+                id="input-with-icon-textfield"
+                label="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                variant="standard"
+              />
+              <FormControl>
+                <FormLabel id="demo-radio-buttons-group-label">Type</FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="all"
+                  onChange={(e) => fetchByParams("type", e.target.value)}
+                  name="radio-buttons-group"
+                >
+                  <FormControlLabel
+                    value="all"
+                    control={<Radio />}
+                    label="all"
+                  />
+                  <FormControlLabel
+                    value="daily"
+                    control={<Radio />}
+                    label="daily"
+                  />
+                  <FormControlLabel
+                    value="action"
+                    control={<Radio />}
+                    label="action"
+                  />
+                  <FormControlLabel
+                    value="fantasy"
+                    control={<Radio />}
+                    label="fantasy"
+                  />
+                </RadioGroup>
+              </FormControl>
+            </Paper>
           </Grid>
         </Grid>
       </Box>
