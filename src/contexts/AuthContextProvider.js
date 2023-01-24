@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import fire from "../helpers/fire";
 
 export const authContext = createContext();
@@ -31,45 +32,50 @@ const AuthContextProvider = ({ children }) => {
             console.log(err.message);
         }
       });
+    alert("User successfully signed up");
+    setHasAccount(!hasAccount);
   };
+
+  const navigate = useNavigate();
 
   const handleLogIn = () => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch((err) => {
-          switch (err.code) {
-              case "auth/user-disabled":
-              case "auth/invalid-email":
-              case "auth/user-not-found":
-                  setEmailError(err.message)
-                  break;
-              case "auth/wrong-password":
-                  setPasswordError(err.message)
-                  break;
-              default:
-                  console.log(err.message);
-          }
+        switch (err.code) {
+          case "auth/user-disabled":
+          case "auth/invalid-email":
+          case "auth/user-not-found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+          default:
+            console.log(err.message);
+        }
       });
+    //   navigate("/products")
   };
 
   const handleLogOut = () => {
     fire.auth().signOut();
-  }
+  };
 
   const authListener = () => {
     fire.auth().onAuthStateChanged((user) => {
-        if(user){
-            setUser(user);
-        } else {
-            setUser("");
-        }
-    })
-  }
+      if (user) {
+        setUser(user);
+      } else {
+        setUser("");
+      }
+    });
+  };
 
   useEffect(() => {
     authListener();
-  }, [])
+  }, []);
 
   let value = {
     email,
@@ -87,7 +93,6 @@ const AuthContextProvider = ({ children }) => {
     handleLogIn,
     handleSignUp,
     handleLogOut,
-    
   };
 
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
