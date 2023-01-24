@@ -28,6 +28,7 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // console.log(location);
   const getProducts = async () => {
     try {
       let res = await axios(`${API}${window.location.search}`);
