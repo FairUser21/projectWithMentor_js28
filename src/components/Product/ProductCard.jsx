@@ -8,10 +8,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 import { useProduct } from "../../contexts/ProductContextProvider";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
+  const { user } = useAuth();
   const navigate = useNavigate();
   return (
     <Card>
@@ -33,14 +35,16 @@ const ProductCard = ({ item }) => {
           {item.price}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={() => deleteProduct(item.id)}>
-          Delete
-        </Button>
-        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
-          Edit
-        </Button>
-      </CardActions>
+      {user.email === "admin@admin.com" ? (
+        <CardActions>
+          <Button size="small" onClick={() => deleteProduct(item.id)}>
+            Delete
+          </Button>
+          <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+            Edit
+          </Button>
+        </CardActions>
+      ) : null}
     </Card>
   );
 };

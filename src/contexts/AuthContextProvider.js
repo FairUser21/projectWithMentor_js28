@@ -42,8 +42,6 @@ const AuthContextProvider = ({ children }) => {
             console.log(err.message);
         }
       });
-    alert("User successfully signed up");
-    setHasAccount(!hasAccount);
   };
 
   const handleLogin = () => {
@@ -64,7 +62,6 @@ const AuthContextProvider = ({ children }) => {
             console.log(err.message);
         }
       });
-    navigate("/products");
   };
 
   const handleLogOut = () => {

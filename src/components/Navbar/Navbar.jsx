@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,8 +38,9 @@ const Navbar = () => {
     { name: "ABOUT US", link: "/aboutus", id: 1 },
     { name: "CONTACT US", link: "/contactus", id: 2 },
     { name: "PRODUCTS", link: "/products", id: 3 },
-    { name: "ADMIN", link: "/admin", id: 4 },
   ];
+
+  const { user, handleLogOut } = useAuth();
 
   return (
     <div>
@@ -142,14 +144,55 @@ const Navbar = () => {
                   </Link>
                 </MenuItem>
               ))}
+              {user.email === "admin@admin.com" ? (
+                <MenuItem>
+                  <Link to="/admin">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      ADMIN
+                    </Typography>
+                  </Link>
+                </MenuItem>
+              ) : (
+                <MenuItem>
+                  <Link to="/cart">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      CART
+                    </Typography>
+                  </Link>
+                </MenuItem>
+              )}
               {/* // -------------------------------------------------------------------- */}
             </Box>
+
             <Box sx={{ flexGrow: 0 }}>
-              <Link to="/auth">
-                <Button sx={{ color: "black", fontWeight: "bold" }}>
-                  LOGIN
+              {user.email ? (
+                <Button
+                  sx={{ color: "black", fontWeight: "bold" }}
+                  onClick={handleLogOut}
+                >
+                  LOGOUT
                 </Button>
-              </Link>
+              ) : (
+                <Link to="/auth">
+                  <Button sx={{ color: "black", fontWeight: "bold" }}>
+                    LOGIN
+                  </Button>
+                </Link>
+              )}
             </Box>
           </Toolbar>
         </Container>
