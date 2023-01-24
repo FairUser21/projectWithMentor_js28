@@ -144,6 +144,13 @@ const Navbar = () => {
               ))}
               {/* // -------------------------------------------------------------------- */}
             </Box>
+            <Box sx={{ flexGrow: 0 }}>
+              <Link to="/auth">
+                <Button sx={{ color: "black", fontWeight: "bold" }}>
+                  LOGIN
+                </Button>
+              </Link>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>
