@@ -1,7 +1,6 @@
-import React, { createContext, useContext } from "react";
-import { useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
-export const cartContext = createContext();
+const cartContext = createContext();
 
 export const useCart = () => useContext(cartContext);
 
@@ -17,6 +16,7 @@ function reducer(state = INIT_STATE, action) {
             return state;
     }
 }
+
 const CartContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -33,8 +33,9 @@ const CartContextProvider = ({ children }) => {
                 totalPrice: 0,
             };
         }
+
         dispatch({
-            action: "GET_CART",
+            type: "GET_CART",
             payload: cart,
         });
     };
@@ -48,18 +49,17 @@ const CartContextProvider = ({ children }) => {
                 totalPrice: 0,
             };
         }
-
         let newProduct = {
             item: product,
             count: 1,
-            subPtice: +product.price,
+            subPrice: +product.price,
         };
 
         cart.products.push(newProduct);
 
         localStorage.setItem("cart", JSON.stringify(cart));
         dispatch({
-            action: "GET_CART",
+            type: "GET_CART",
             payload: cart,
         });
     };
@@ -70,7 +70,6 @@ const CartContextProvider = ({ children }) => {
         getCart,
         addProductToCart,
     };
-
     return (
         <cartContext.Provider value={value}>{children}</cartContext.Provider>
     );

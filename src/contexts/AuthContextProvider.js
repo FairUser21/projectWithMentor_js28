@@ -23,8 +23,6 @@ const AuthContextProvider = ({ children }) => {
     let [passwordError, setPasswordError] = useState("");
     let [hasAccount, setHasAccount] = useState("");
 
-    const navigate = useNavigate();
-
     const handleSignUp = () => {
         fire.auth()
             .createUserWithEmailAndPassword(email, password)
