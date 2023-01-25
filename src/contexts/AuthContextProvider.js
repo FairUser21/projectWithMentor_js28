@@ -1,5 +1,12 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+
+import React, {
+  Children,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { useNavigate } from "react-router-dom";
 import fire from "../helpers/fire";
 
 export const authContext = createContext();
@@ -8,12 +15,16 @@ export const useAuth = () => useContext(authContext);
 
 const AuthContextProvider = ({ children }) => {
   let [user, setUser] = useState("");
+
+
   let [email, setEmail] = useState("");
+
   let [password, setPassword] = useState("");
 
   let [emailError, setEmailError] = useState("");
   let [passwordError, setPasswordError] = useState("");
   let [hasAccount, setHasAccount] = useState("");
+
 
   const handleSignUp = () => {
     fire
@@ -25,20 +36,17 @@ const AuthContextProvider = ({ children }) => {
           case "auth/invalid-email":
             setEmailError(err.message);
             break;
-          case "auth/invalid-password":
+
+          case "auth/weak-password":
             setPasswordError(err.message);
             break;
           default:
             console.log(err.message);
         }
       });
-    alert("User successfully signed up");
-    setHasAccount(!hasAccount);
   };
 
-  const navigate = useNavigate();
-
-  const handleLogIn = () => {
+  const handleLogin = () => {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -56,7 +64,6 @@ const AuthContextProvider = ({ children }) => {
             console.log(err.message);
         }
       });
-    //   navigate("/products")
   };
 
   const handleLogOut = () => {
@@ -86,15 +93,15 @@ const AuthContextProvider = ({ children }) => {
     passwordError,
     hasAccount,
 
-    setEmail,
+
     setPassword,
+    setEmail,
     setHasAccount,
 
-    handleLogIn,
     handleSignUp,
+    handleLogin,
     handleLogOut,
   };
-
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };
 

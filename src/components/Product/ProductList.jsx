@@ -5,6 +5,7 @@ import {
   FormLabel,
   Grid,
   InputAdornment,
+  Pagination,
   Paper,
   Radio,
   RadioGroup,
@@ -24,6 +25,8 @@ const ProductList = () => {
   const { products, getProducts, fetchByParams } = useProduct();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
+  const [page, setPage] = useState(1);
+  const count = Math.ceil(products.length / 3);
 
   useEffect(() => {
     getProducts();
@@ -38,6 +41,12 @@ const ProductList = () => {
   useEffect(() => {
     getProducts();
   }, [searchParams]);
+
+  function currentData() {
+    const begin = (page - 1) * 3;
+    const end = begin + 3;
+    return products.slice(begin, end);
+  }
 
   return (
     <Container>
@@ -57,13 +66,20 @@ const ProductList = () => {
               }}
             >
               {products ? (
-                products.map((item) => (
+                currentData().map((item) => (
                   <ProductCard item={item} key={item.id} />
                 ))
               ) : (
                 <h2>Loading...</h2>
               )}
             </Box>
+            <Pagination
+              count={count}
+              variant="outlined"
+              shape="rounded"
+              page={page}
+              onChange={(e, p) => setPage(p)}
+            />
           </Grid>
           <Grid item md={3}>
             <Paper>

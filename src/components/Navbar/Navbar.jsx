@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 
 const Navbar = () => {
-  const {user, handleLogOut} = useAuth();
+  const { user, handleLogOut } = useAuth();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   let a = 1;
@@ -39,7 +39,6 @@ const Navbar = () => {
     { name: "ABOUT US", link: "/aboutus", id: 1 },
     { name: "CONTACT US", link: "/contactus", id: 2 },
     { name: "PRODUCTS", link: "/products", id: 3 },
-    // { name: "ADMIN", link: "/admin", id: 4 },
   ];
 
   return (
@@ -97,7 +96,7 @@ const Navbar = () => {
                           sx={{
                             ml: "auto",
                             my: 1,
-                            color: "black",
+                            color: "white",
                             display: "block",
                           }}
                         >
@@ -144,21 +143,21 @@ const Navbar = () => {
                   </Link>
                 </MenuItem>
               ))}
-              { user.email === "admin@admin.com" ? (
+              {user.email === "admin@admin.com" ? (
                 <MenuItem>
-                <Link to="/admin">
-                  <Typography
-                    sx={{
-                      ml: "auto",
-                      my: 2,
-                      color: "black",
-                      display: "block",
-                    }}
-                  >
-                    ADMIN
-                  </Typography>
-                </Link>
-              </MenuItem>
+                  <Link to="/admin">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      ADMIN
+                    </Typography>
+                  </Link>
+                </MenuItem>
               ) : (
                 <MenuItem>
                   <Link to="/cart">
@@ -175,26 +174,24 @@ const Navbar = () => {
                   </Link>
                 </MenuItem>
               )}
-
               {/* // -------------------------------------------------------------------- */}
             </Box>
-            <Box>
 
-
-            </Box>
             <Box sx={{ flexGrow: 0 }}>
               {user.email ? (
-                <Button sx={{color: "black", fontWeight: "bold" }} onClick={handleLogOut} >
+                <Button
+                  sx={{ color: "black", fontWeight: "bold" }}
+                  onClick={handleLogOut}
+                >
                   LOGOUT
                 </Button>
               ) : (
                 <Link to="/auth">
-                <Button sx={{ color: "black", fontWeight: "bold" }}>
-                  LOGIN
-                </Button>
-              </Link>
-              )
-              }
+                  <Button sx={{ color: "black", fontWeight: "bold" }}>
+                    LOGIN
+                  </Button>
+                </Link>
+              )}
             </Box>
           </Toolbar>
         </Container>

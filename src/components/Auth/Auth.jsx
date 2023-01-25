@@ -1,3 +1,4 @@
+
 import { LockOutlined } from "@mui/icons-material";
 import {
   Avatar,
@@ -13,7 +14,6 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/system";
-import React from "react";
 import { useAuth } from "../../contexts/AuthContextProvider";
 
 const theme = createTheme();
@@ -27,7 +27,6 @@ const Auth = () => {
     emailError,
     passwordError,
     hasAccount,
-
     setEmail,
     setPassword,
     setHasAccount,
@@ -97,7 +96,9 @@ const Auth = () => {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
+
                   onClick={handleLogIn}
+
                 >
                   Sign In
                 </Button>
@@ -126,6 +127,7 @@ const Auth = () => {
                       onClick={() => setHasAccount(!hasAccount)}
                     >
                       Don't have an account? Sign Up.
+
                     </Link>
                   ) : (
                     <Link

@@ -12,6 +12,7 @@ const AuthPage = () => {
       {email ? <HomePage/> : <Auth/> }
     </div>
   );
+
 };
 
 export default AuthPage;

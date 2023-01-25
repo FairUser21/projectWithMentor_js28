@@ -42,7 +42,7 @@ const MainRoutes = () => {
             <Route
               path={item.link}
               element={
-                user.email === "admin@admin.com" ? (
+                user.email === "admin@admin.com ?" ? (
                   item.element
                 ) : (
                   <Navigate replace to="*" />
