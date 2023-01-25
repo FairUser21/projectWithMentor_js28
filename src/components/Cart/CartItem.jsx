@@ -1,8 +1,10 @@
 import {Button, CardMedia, Grid, Paper, Typography} from '@mui/material';
 import {Box} from '@mui/system';
 import React, {useState} from 'react';
+import { useCart } from '../../contexts/CartContextProvider';
 
 const CartItem = ({item}) => {
+   const {changeProductCount,deleteCartProduct} = useCart()
    return (
       <Grid container spacing={5} alignItems="center">
          <Grid item>
@@ -12,32 +14,42 @@ const CartItem = ({item}) => {
                   height: 50,
                   width: 50,
                }}
-               src={item.img}
-               alt={item.title}
+               src={item.item.img}
+               alt={item.item.title}
             />
          </Grid>
          <Grid item>
             <Typography gutterBottom variant="p" component="div">
-               {item.title}
+               {item.item.title}
             </Typography>
          </Grid>
          <Grid item>
             <Typography gutterBottom variant="p" component="div">
-               {item.type}
+               {item.item.type}
             </Typography>
          </Grid>
          <Grid item>
             <Typography variant="p" color="text.secondary">
-               Price: {item.price}
+               Price: {item.item.price}
             </Typography>
          </Grid>
          <Grid item>
             <Typography variant="p" color="text.secondary">
-               Quantity:
+               Quantity:<input 
+               type="number"
+               min={1}
+               max={100}
+                value={item.count}
+                 onChange={(e) =>changeProductCount(e.target.value, item.item.id)}></input>
             </Typography>
          </Grid>
          <Grid item>
-            <Button variant="outlined" size="small">
+            <Typography variant="p" color="text.secondary">
+               SubPrice: {item.subPrice}
+            </Typography>
+         </Grid>
+         <Grid item>
+            <Button variant="outlined" size="small" onClick={()=>deleteCartProduct(item.item.id)}>
                Remove
             </Button>
          </Grid>

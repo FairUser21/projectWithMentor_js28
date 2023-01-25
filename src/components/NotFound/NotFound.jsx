@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
 import Jason from "./img/jason-momoa-jason.gif"
+import Anon from "./img/anonym.png"
 
 const theme = createTheme();
 
@@ -68,9 +69,23 @@ const NotFound = () => {
         >
           404
         </Typography>
+        <Typography
+          variant="h3"
+          sx={{
+            color: "black",
+            fontSize: 200,
+            fontWeight: 700,
+            marginTop:"-18%",
+            marginLeft:"5%",
+            color: "rgba(0,0,0,0.5)",
+
+          }}
+        >
+          404
+        </Typography>
       </ThemeProvider>
-         {/* <img src={Image} alt="" className='img' style={{width:"21%"}}/> */}
-         <img src={Jason} alt="" style={{width:"15%"}}/>
+     
+         <img src={Anon} alt="" />
             
       <Typography
         theme={theme}
@@ -128,18 +143,3 @@ const NotFound = () => {
 
 export default NotFound;
 
-// import Nfp from "./img/nfp.gif"
-
-// import React from 'react';
-
-// const NotFound = () => {
-//     return (
-//         <div style={{width:"100%"}}>
-//             <img src={Nfp} alt=""  style={{width:"100%"}}/>
-//                 <div>NOT FOUND PAGE</div>
-         
-//         </div>
-//     );
-// };
-
-// export default NotFound;
