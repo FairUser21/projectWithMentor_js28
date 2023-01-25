@@ -4,16 +4,20 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import { useCart } from "../../contexts/CartContextProvider";
 import { useProduct } from "../../contexts/ProductContextProvider";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
   const { user } = useAuth();
+  const { addProductToCart, checkProductInCart } = useCart();
   const navigate = useNavigate();
   return (
     <Card>
@@ -44,7 +48,13 @@ const ProductCard = ({ item }) => {
             Edit
           </Button>
         </CardActions>
-      ) : null}
+      ) : (
+        <IconButton onClick={() => addProductToCart(item)}>
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? "primary" : ""}
+          />
+        </IconButton>
+      )}
     </Card>
   );
 };
