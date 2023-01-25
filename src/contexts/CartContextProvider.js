@@ -1,4 +1,6 @@
+import { elementAcceptingRef } from "@mui/utils";
 import React, { createContext, useContext, useReducer } from "react";
+import { calcSubPrice, calcTotalPrice } from "../helpers/functions";
 
 const cartContext = createContext();
 
@@ -55,7 +57,19 @@ const CartContextProvider = ({ children }) => {
       subPrice: +product.price,
     };
 
-    cart.products.push(newProduct);
+    let productToFind = cart.products.filter(
+      (elem) => elem.item.id === product.id
+    );
+
+    if (productToFind.length === 0) {
+      cart.products.push(newProduct);
+    } else {
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id
+      );
+    }
+
+    cart.totalPrice = calcTotalPrice(cart.products);
 
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch({
@@ -64,11 +78,69 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
+  const changeProductCount = (count, id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    cart.products = cart.products.map((product) => {
+      if (product.item.id === id) {
+        product.count = count;
+        product.subPrice = calcSubPrice(product);
+      }
+      return product;
+    });
+    cart.totalPrice = calcTotalPrice(cart.products);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+
+  function deleteCartProduct(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    cart.products = cart.products.filter((elem) => elem.item.id !== id);
+
+    cart.totalPrice = calcTotalPrice(cart.products);
+    console.log(calcTotalPrice(cart.products));
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  }
+
+  function checkProductInCart(id) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    if (cart) {
+      let newCart = cart.products.filter((elem) => elem.item.id === id);
+      return newCart.length > 0 ? true : false;
+    } else {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+  }
+
+  function clearCart() {
+    localStorage.clear();
+    getCart();
+  }
+
   let value = {
     cart: state.cart,
 
     getCart,
     addProductToCart,
+    changeProductCount,
+    deleteCartProduct,
+    checkProductInCart,
+    clearCart,
   };
   return <cartContext.Provider value={value}>{children}</cartContext.Provider>;
 };

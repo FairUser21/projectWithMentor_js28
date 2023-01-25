@@ -16,7 +16,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
-  const { addProductToCart } = useCart();
+  const { addProductToCart, checkProductInCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
   return (
@@ -50,7 +50,9 @@ const ProductCard = ({ item }) => {
         </CardActions>
       ) : (
         <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon />
+          <ShoppingCartIcon
+            color={checkProductInCart(item.id) ? "primary" : ""}
+          />
         </IconButton>
       )}
     </Card>
