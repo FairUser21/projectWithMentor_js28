@@ -4,7 +4,6 @@ import ContactUs from "../components/ContactUs/ContactUs";
 const ContactUsPage = () => {
   return (
     <div>
-      contact
       <ContactUs />
     </div>
   );

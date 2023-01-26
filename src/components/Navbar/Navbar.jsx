@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,8 +38,9 @@ const Navbar = () => {
     { name: "ABOUT US", link: "/aboutus", id: 1 },
     { name: "CONTACT US", link: "/contactus", id: 1 },
     { name: "PRODUCTS", link: "/products", id: 1 },
-    { name: "ADMIN", link: "/admin", id: 1 },
   ];
+  const { user, handleLogOut } = useAuth();
+
   return (
     <div>
       <AppBar position="static" elevation={3}>
@@ -52,7 +54,7 @@ const Navbar = () => {
             >
               <img
                 id="logo"
-                src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+                // src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
                 alt=""
               />
             </Typography>
@@ -114,7 +116,7 @@ const Navbar = () => {
             >
               <img
                 id="logo"
-                src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
+                // src="https://demo.xpeedstudio.com/marketo/wp-content/uploads/2020/06/logo_3.png"
                 alt=""
               />
             </Typography>
@@ -142,7 +144,55 @@ const Navbar = () => {
                 </MenuItem>
               ))}
 
+              {user.email === "admin@admin.com" ? (
+                <MenuItem>
+                  <Link to="/admin">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      Admin
+                    </Typography>
+                  </Link>
+                </MenuItem>
+              ) : (
+                <MenuItem>
+                  <Link to="/cart">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      Cart
+                    </Typography>
+                  </Link>
+                </MenuItem>
+              )}
               {/* // -------------------------------------------------------------------- */}
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              {user.email ? (
+                <Button
+                  sx={{ color: "black", fontWeight: "bold" }}
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </Button>
+              ) : (
+                <Link to="/auth">
+                  <Button sx={{ color: "black", fontWeight: "bold" }}>
+                    LOGIN
+                  </Button>
+                </Link>
+              )}
             </Box>
           </Toolbar>
         </Container>
