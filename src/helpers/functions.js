@@ -7,3 +7,9 @@ export function calcTotalPrice(products){
 export function calcSubPrice(product) {
     return +product.count * product.item.price;
 }
+
+export function calcQuantity(products) {
+    return products.reduce((acc, a) => {
+      return acc + +a.count;
+    }, 0);
+  }

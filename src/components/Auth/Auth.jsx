@@ -31,7 +31,7 @@ const Auth = () => {
     setPassword,
     setHasAccount,
 
-    handleLogIn,
+    handleLogin,
     handleSignUp,
     handleLogOut,
   } = useAuth();
@@ -97,7 +97,7 @@ const Auth = () => {
                   variant="contained"
                   sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
 
-                  onClick={handleLogIn}
+                  onClick={handleLogin}
 
                 >
                   Sign In
