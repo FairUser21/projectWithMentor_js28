@@ -49,11 +49,16 @@ const ProductCard = ({ item }) => {
           </Button>
         </CardActions>
       ) : (
-        <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon
-            color={checkProductInCart(item.id) ? "primary" : ""}
-          />
-        </IconButton>
+        <CardActions>
+          <IconButton onClick={() => addProductToCart(item)}>
+            <ShoppingCartIcon
+              color={checkProductInCart(item.id) ? "primary" : ""}
+            />
+          </IconButton>
+          <Button onClick={() => navigate(`/products/${item.id}`)}>
+            DETAILS
+          </Button>
+        </CardActions>
       )}
     </Card>
   );

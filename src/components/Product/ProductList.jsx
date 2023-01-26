@@ -73,13 +73,6 @@ const ProductList = () => {
                 <h2>Loading...</h2>
               )}
             </Box>
-            <Pagination
-              count={count}
-              variant="outlined"
-              shape="rounded"
-              page={page}
-              onChange={(e, p) => setPage(p)}
-            />
           </Grid>
           <Grid item md={3}>
             <Paper>
@@ -128,6 +121,15 @@ const ProductList = () => {
                 </RadioGroup>
               </FormControl>
             </Paper>
+          </Grid>
+          <Grid item md={12}>
+            <Pagination
+              count={count}
+              variant="outlined"
+              shape="rounded"
+              page={page}
+              onChange={(e, p) => setPage(p)}
+            />
           </Grid>
         </Grid>
       </Box>
