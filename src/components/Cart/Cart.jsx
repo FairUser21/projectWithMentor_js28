@@ -2,13 +2,11 @@ import { Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useCart } from "../../contexts/CartContextProvider";
-import { useProduct } from "../../contexts/ProductContextProvider";
+
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { cart, getCart , clearCart} = useCart();
-
-
+  const { cart, getCart, clearCart } = useCart();
   useEffect(() => {
     getCart();
   }, []);
@@ -25,9 +23,10 @@ const Cart = () => {
         })}
       </Container>
       <Container>
-         <Button variant="outlined" onClick={clearCart} >BUY</Button>
-         <Typography fontSize={21} > Total Price is {cart?.totalPrice}</Typography>
-
+        <Button variant="outlined" onClick={clearCart}>
+          BUY
+        </Button>
+        <Typography fontSize={21}>Total Price :{cart?.totalPrice}</Typography>
       </Container>
     </>
   );

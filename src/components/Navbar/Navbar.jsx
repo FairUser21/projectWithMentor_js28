@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Badge from "@mui/material/Badge";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useCart } from "../../contexts/CartContextProvider";
 import { Grid } from "@mui/material";
@@ -25,12 +26,12 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+
   const { getCart, cart, totalQuantity } = useCart();
   useEffect(() => {
     getCart();
   }, []);
 
-  let a = 1;
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -226,6 +227,11 @@ const Navbar = () => {
                       CART
                     </Typography>
                   </Link>
+                  {/* <IconButton>
+                    <Badge badgeContent={localStorage.length} color="error">
+                      <ShoppingCartIcon />
+                    </Badge>
+                  </IconButton> */}
                 </MenuItem>
               )}
               {/* // -------------------------------------------------------------------- */}

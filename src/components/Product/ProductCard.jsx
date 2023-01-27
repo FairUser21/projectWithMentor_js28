@@ -20,7 +20,6 @@ const ProductCard = ({ item }) => {
   const { user } = useAuth();
   const { addProductToCart, checkProductInCart } = useCart();
 
-
   const navigate = useNavigate();
   return (
     <Card>
@@ -52,10 +51,18 @@ const ProductCard = ({ item }) => {
           </Button>
         </CardActions>
       ) : (
-        <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon color={checkProductInCart(item.id) ? "primary" : ""} />
 
-        </IconButton>
+        <CardActions>
+          <IconButton onClick={() => addProductToCart(item)}>
+            <ShoppingCartIcon
+              color={checkProductInCart(item.id) ? "primary" : ""}
+            />
+          </IconButton>
+          <Button onClick={() => navigate(`/products/${item.id}`)}>
+            DETAILS
+          </Button>
+        </CardActions>
+
       )}
     </Card>
   );
