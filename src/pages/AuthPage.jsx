@@ -1,13 +1,14 @@
+import { Home } from "@mui/icons-material";
 import React from "react";
 import Auth from "../components/Auth/Auth";
-
+import { useAuth } from "../contexts/AuthContextProvider";
+import HomePage from "./HomePage";
 const AuthPage = () => {
-  return (
-    <div>
-      AuthPage
-      <Auth />
-    </div>
-  );
+  const {
+    user: { email },
+  } = useAuth();
+
+  return <div>{email ? <HomePage /> : <Auth />}</div>;
 };
 
 export default AuthPage;

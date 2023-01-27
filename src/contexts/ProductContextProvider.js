@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useReducer } from "react";
 import axios from "axios";
+import React, { createContext, useContext, useReducer } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API } from "../helpers/consts";
-import { useNavigate } from "react-router-dom";
 
 export const productContext = createContext();
 
@@ -22,14 +22,15 @@ function reducer(state = INIT_STATE, action) {
       return state;
   }
 }
-
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
   const navigate = useNavigate();
+  const location = useLocation(); // обращение к адресной строке
 
   const getProducts = async () => {
     try {
-      let res = await axios(API);
+      let res = await axios(`${API}${window.location.search}`);
       dispatch({
         type: "GET_PRODUCTS",
         payload: res.data,
@@ -73,20 +74,34 @@ const ProductContextProvider = ({ children }) => {
     try {
       await axios.patch(`${API}/${id}`, obj);
       getProducts();
+      navigate("/products");
     } catch (error) {
       console.log(error);
     }
   };
 
+  const fetchByParams = async (query, value) => {
+    const search = new URLSearchParams(location.search);
+
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    const url = `${location.pathname}?${search.toString()}`;
+    navigate(url);
+    // getProducts();
+  };
+
   let value = {
     products: state.products,
     productDetails: state.productDetails,
-
     getProducts,
     addProduct,
     deleteProduct,
     getProductDetails,
     saveEditProduct,
+    fetchByParams,
   };
   return (
     <productContext.Provider value={value}>{children}</productContext.Provider>
