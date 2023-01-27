@@ -14,6 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Badge } from "@mui/material";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -172,6 +174,11 @@ const Navbar = () => {
                       CART
                     </Typography>
                   </Link>
+                  {/* <IconButton>
+                    <Badge badgeContent={localStorage.length} color="error">
+                      <ShoppingCartIcon />
+                    </Badge>
+                  </IconButton> */}
                 </MenuItem>
               )}
               {/* // -------------------------------------------------------------------- */}
