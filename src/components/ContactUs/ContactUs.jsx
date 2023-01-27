@@ -136,7 +136,7 @@ const ContactUs = () => {
               <Grid item xs={12} mt={3}>
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: "#82b1ff", color: "black" }}
+                  sx={{ backgroundColor: "red", color: "white" }}
                   endIcon={<SendIcon />}
                 >
                   Send Message

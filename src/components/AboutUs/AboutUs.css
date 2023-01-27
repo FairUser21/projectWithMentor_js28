@@ -1,0 +1,55 @@
+body {
+  height: 1500px;
+}
+.about-text {
+  width: 750px;
+  padding-bottom: 20px;
+  color: rgb(rgb(210, 210, 210));
+}
+.about-heading {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.block {
+  width: 1600px;
+  height: 400px;
+  /* background-color: rgb(212, 212, 212); */
+  position: absolute;
+  top: 565px;
+  left: 0px;
+  background-color: #282c34;
+}
+.cont {
+  position: relative;
+}
+
+.foooter {
+  width: 100vw;
+  position: absolute;
+  /* bottom: 0; */
+  background-color: #282c34;
+  margin-top: 60px;
+}
+
+.svyaz {
+  color: #fff;
+  /* background-color: #fff; */
+  height: 80px;
+}
+
+.aaa {
+  text-decoration: none;
+  color: #fff;
+}
+
+.thre {
+  display: flex;
+  justify-content: space-around;
+}
+
+.headerr {
+  /* position: absolute; */
+  /* top: 0; */
+}

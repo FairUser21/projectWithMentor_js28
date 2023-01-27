@@ -21,11 +21,9 @@ import { useCart } from "../../contexts/CartContextProvider";
 import { Grid } from "@mui/material";
 import logo from "./Logo.png";
 
-
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
 
   const { getCart, cart, totalQuantity } = useCart();
   useEffect(() => {
@@ -60,12 +58,7 @@ const Navbar = () => {
       <AppBar position="static" elevation={3}>
         <Container maxWidth="xl" sx={{ background: "#e60a1b" }}>
           <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ mr: 2, }}
-            >
+            <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
               <img id="logo" src={logo} alt="" width="100px" />
             </Typography>
 
@@ -122,28 +115,43 @@ const Navbar = () => {
                     </MenuItem>
                   ))}
                   {user.email === "admin@admin.com" ? (
-                <MenuItem>
-                  <NavLink
-                    to="/admin"
-                    style={{
-                      textDecoration: "none",
-                      color: "#ffffffb3",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "15px",
-                        ml: "auto",
-                        my: 2,
-                        color: "#ffffffb3",
-                        display: "block",
-                      }}
-                    >
-                      ADMIN
-                    </Typography>
-                  </NavLink>
-                </MenuItem>
-              ) : null}
+                    <MenuItem>
+                      <NavLink
+                        to="/admin"
+                        style={{
+                          textDecoration: "none",
+                          color: "#ffffffb3",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "15px",
+                            ml: "auto",
+                            my: 2,
+                            color: "#ffffffb3",
+                            display: "block",
+                          }}
+                        >
+                          ADMIN
+                        </Typography>
+                      </NavLink>
+                    </MenuItem>
+                  ) : (
+                    <MenuItem>
+                      <Link to="/cart">
+                        <Typography
+                          sx={{
+                            ml: "auto",
+                            my: 2,
+                            color: "black",
+                            display: "block",
+                          }}
+                        >
+                          CART
+                        </Typography>
+                      </Link>
+                    </MenuItem>
+                  )}
                 </Box>
               </Menu>
             </Box>
@@ -302,7 +310,6 @@ const Navbar = () => {
                     </Grid>
                   </Grid>
                 </>
-
               )}
             </Box>
           </Toolbar>
