@@ -20,6 +20,7 @@ import { useCart } from "../../contexts/CartContextProvider";
 import { Grid } from "@mui/material";
 import logo from "./Logo.png";
 
+
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -203,6 +204,7 @@ const Navbar = () => {
                         ml: "auto",
                         my: 2,
                         color: "#ffffffb3",
+
                         display: "block",
                       }}
                     >
@@ -210,7 +212,22 @@ const Navbar = () => {
                     </Typography>
                   </NavLink>
                 </MenuItem>
-              ) : null}
+              ) : (
+                <MenuItem>
+                  <Link to="/cart">
+                    <Typography
+                      sx={{
+                        ml: "auto",
+                        my: 2,
+                        color: "black",
+                        display: "block",
+                      }}
+                    >
+                      CART
+                    </Typography>
+                  </Link>
+                </MenuItem>
+              )}
               {/* // -------------------------------------------------------------------- */}
             </Box>
 
@@ -279,6 +296,7 @@ const Navbar = () => {
                     </Grid>
                   </Grid>
                 </>
+
               )}
             </Box>
           </Toolbar>

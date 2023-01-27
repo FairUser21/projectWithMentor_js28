@@ -13,3 +13,4 @@ export function calcQuantity(products) {
       return acc + +a.count;
     }, 0);
   }
+

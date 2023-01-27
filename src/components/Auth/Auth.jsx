@@ -1,4 +1,5 @@
 
+import React from "react";
 import { LockOutlined } from "@mui/icons-material";
 import {
   Avatar,
@@ -85,6 +86,7 @@ const Auth = () => {
                   setPassword(e.target.value);
                 }}
                 autoComplete="current-password"
+
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -96,8 +98,8 @@ const Auth = () => {
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
-
                   onClick={handleLogin}
+
 
                 >
                   Sign In
@@ -110,6 +112,7 @@ const Auth = () => {
                   onClick={handleSignUp}
                 >
                   Sign Up
+
                 </Button>
               )}
 
@@ -128,6 +131,7 @@ const Auth = () => {
                     >
                       Don't have an account? Sign Up.
 
+
                     </Link>
                   ) : (
                     <Link
@@ -136,6 +140,7 @@ const Auth = () => {
                       onClick={() => setHasAccount(!hasAccount)}
                     >
                       Have an account? Sign In.
+
                     </Link>
                   )}
                 </Grid>

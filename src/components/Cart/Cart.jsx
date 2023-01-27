@@ -8,11 +8,11 @@ import CartItem from "./CartItem";
 const Cart = () => {
   const { cart, getCart , clearCart} = useCart();
 
+
   useEffect(() => {
     getCart();
   }, []);
 
-  
 
   return (
     <>
@@ -27,6 +27,7 @@ const Cart = () => {
       <Container>
          <Button variant="outlined" onClick={clearCart} >BUY</Button>
          <Typography fontSize={21} > Total Price is {cart?.totalPrice}</Typography>
+
       </Container>
     </>
   );

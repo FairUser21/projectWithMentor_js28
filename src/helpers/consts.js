@@ -1,2 +1,1 @@
-export const API = "https://awake-halved-rhinoceros.glitch.me/products";
-
+API = "https://abrupt-supreme-pin.glitch.me/products/";

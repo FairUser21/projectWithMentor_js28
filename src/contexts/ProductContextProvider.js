@@ -81,7 +81,7 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  const fetchByParams = async (query, value) => {
+  const fetchByParams = (query, value) => {
     const search = new URLSearchParams(location.search);
     // https://github.com/typicode/json-server/?q
     if (value === "all") {

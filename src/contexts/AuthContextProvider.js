@@ -1,4 +1,3 @@
-
 import React, {
   Children,
   createContext,
@@ -15,7 +14,6 @@ export const useAuth = () => useContext(authContext);
 
 const AuthContextProvider = ({ children }) => {
   let [user, setUser] = useState("");
-
 
   let [email, setEmail] = useState("");
 

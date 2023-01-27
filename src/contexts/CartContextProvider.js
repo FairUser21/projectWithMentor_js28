@@ -1,7 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { calcQuantity, calcSubPrice, calcTotalPrice } from "../helpers/functions";
+import { elementAcceptingRef } from "@mui/utils";
 
 export const cartContext = createContext();
+
+
 
 export const useCart = () => useContext(cartContext);
 
@@ -15,6 +18,7 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, cart: action.payload };
       case "GET_QUANTITY":
         return { ...state, totalQuantity: action.payload };
+
     default:
       return state;
   }
@@ -33,6 +37,7 @@ const CartContextProvider = ({ children }) => {
 
   const getCart = () => {
     let cart = JSON.parse(localStorage.getItem("cart"));
+
     if (!cart) {
       localStorage.setItem(
         "cart",
@@ -45,6 +50,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     setQuantity(cart.products);
+
 
     dispatch({
       type: "GET_CART",
@@ -61,7 +67,6 @@ const CartContextProvider = ({ children }) => {
         totalPrice: 0,
       };
     }
-
     let newProduct = {
       item: product,
       count: 1,
@@ -107,6 +112,7 @@ const CartContextProvider = ({ children }) => {
 
     setQuantity(cart.products);
 
+
     dispatch({
       type: "GET_CART",
       payload: cart,
@@ -119,6 +125,7 @@ const CartContextProvider = ({ children }) => {
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem("cart", JSON.stringify(cart));
     setQuantity(cart.products);
+
 
     dispatch({
       type: "GET_CART",
@@ -155,6 +162,7 @@ const CartContextProvider = ({ children }) => {
     checkProductInCart,
     clearCart
   };
+
 
   return <cartContext.Provider value={value}>{children}</cartContext.Provider>;
 };

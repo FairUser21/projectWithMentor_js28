@@ -3,13 +3,13 @@ import "firebase/compat/app";
 import "firebase/compat/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDk08M8mbMT3X77lmGqD8bv_oQZ59H1bfk",
-  authDomain: "js28project.firebaseapp.com",
-  projectId: "js28project",
-  storageBucket: "js28project.appspot.com",
-  messagingSenderId: "222578495156",
-  appId: "1:222578495156:web:49797bd94706e3176511e1",
-  measurementId: "G-KR2BHS9ERZ",
+
+  apiKey: "AIzaSyC3wGne71VHvXPHDjwwA4R06cbI8ys1rmI",
+  authDomain: "projectjs28.firebaseapp.com",
+  projectId: "projectjs28",
+  storageBucket: "projectjs28.appspot.com",
+  messagingSenderId: "150776353519",
+  appId: "1:150776353519:web:749b5860e0f3257c18c11a",
 };
 
 const fire = firebase.initializeApp(firebaseConfig);
