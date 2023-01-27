@@ -1,2 +1,2 @@
-export const API = "http://localhost:8000/products";
+export const API = "https://awake-halved-rhinoceros.glitch.me/products";
 
