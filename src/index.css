@@ -5,9 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.footer{
+  box-shadow: 0px -3px 3px rgba(128, 128, 128, 0.385);
+}
+
+.active p,
+.active button {
+  font-weight: bold;
+  color: white;
+  /* color: #e60a1c74 */
 }

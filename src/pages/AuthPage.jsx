@@ -5,10 +5,14 @@ import HomePage from "./HomePage";
 
 const AuthPage = () => {
   const {
-    user: { email },
+    user: {email},
   } = useAuth();
+  return (
+    <div>
+      {email ? <HomePage/> : <Auth/> }
+    </div>
+  );
 
-  return <div>{email ? <HomePage /> : <Auth />}</div>;
 };
 
 export default AuthPage;

@@ -6,9 +6,8 @@ import { useProduct } from "../../contexts/ProductContextProvider";
 
 const EditProduct = () => {
   const { productDetails, getProductDetails, saveEditProduct } = useProduct();
-  const [product, setProduct] = useState(productDetails);
-
   const params = useParams();
+  const [product, setProduct] = useState(productDetails);
 
   useEffect(() => {
     getProductDetails(params.id);
@@ -38,7 +37,7 @@ const EditProduct = () => {
     >
       <Typography>Edit Panel</Typography>
       <TextField
-        value={product.title}
+        value={product.title || ""}
         id="outlined-basic"
         variant="outlined"
         name="title"

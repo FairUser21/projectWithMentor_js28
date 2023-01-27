@@ -1,1 +1,1 @@
-export const API = "http://localhost:8000/products";
+API = "https://abrupt-supreme-pin.glitch.me/products/";

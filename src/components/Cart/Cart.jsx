@@ -2,6 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useCart } from "../../contexts/CartContextProvider";
+
 import CartItem from "./CartItem";
 
 const Cart = () => {
@@ -9,6 +10,7 @@ const Cart = () => {
   useEffect(() => {
     getCart();
   }, []);
+
 
   return (
     <>

@@ -28,6 +28,7 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // console.log(location);
   const getProducts = async () => {
     try {
       let res = await axios(`${API}${window.location.search}`);
@@ -80,7 +81,7 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  const fetchByParams = async (query, value) => {
+  const fetchByParams = (query, value) => {
     const search = new URLSearchParams(location.search);
     // https://github.com/typicode/json-server/?q
     if (value === "all") {
