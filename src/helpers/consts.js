@@ -1,1 +1,1 @@
-API = "https://abrupt-supreme-pin.glitch.me/products/";
+export const API = "https://abrupt-supreme-pin.glitch.me/products/";
