@@ -39,7 +39,7 @@ const EditProduct = () => {
     >
       <Typography>Edit Panel</Typography>
       <TextField
-        value={product.title}
+        value={product.title || ""}
         id="outlined-basic"
         variant="outlined"
         name="title"

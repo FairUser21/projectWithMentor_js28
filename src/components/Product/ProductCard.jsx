@@ -7,7 +7,8 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
@@ -16,8 +17,10 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
-  const { addProductToCart, checkProductInCart } = useCart();
   const { user } = useAuth();
+  const { addProductToCart, checkProductInCart } = useCart();
+
+
   const navigate = useNavigate();
   return (
     <Card>
@@ -50,9 +53,8 @@ const ProductCard = ({ item }) => {
         </CardActions>
       ) : (
         <IconButton onClick={() => addProductToCart(item)}>
-          <ShoppingCartIcon
-            color={checkProductInCart(item.id) ? "primary" : ""}
-          />
+          <ShoppingCartIcon color={checkProductInCart(item.id) ? "primary" : ""} />
+
         </IconButton>
       )}
     </Card>

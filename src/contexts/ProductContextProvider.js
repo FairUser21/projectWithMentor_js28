@@ -28,6 +28,7 @@ const ProductContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // console.log(location);
   const getProducts = async () => {
     try {
       let res = await axios(`${API}${window.location.search}`);
@@ -89,6 +90,8 @@ const ProductContextProvider = ({ children }) => {
       search.set(query, value);
     }
     const url = `${location.pathname}?${search.toString()}`;
+    console.log(location);
+    console.log();
     navigate(url);
     // getProducts();
   };

@@ -1,11 +1,6 @@
-import {
-  Button,
-  CardMedia,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
+
+import { Button, CardMedia, Grid, Paper, Typography } from "@mui/material";
+
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { useCart } from "../../contexts/CartContextProvider";
@@ -46,12 +41,11 @@ const CartItem = ({ item }) => {
           Quantity:{" "}
           <input
             type="number"
+            value={item.count}
             min={1}
             max={100}
-            value={item.count}
-            onChange={(e) => {
-              changeProductCount(e.target.value, item.item.id);
-            }}
+            onChange={(e) => changeProductCount(e.target.value, item.item.id)}
+
           ></input>
         </Typography>
       </Grid>
@@ -61,11 +55,8 @@ const CartItem = ({ item }) => {
         </Typography>
       </Grid>
       <Grid item>
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => deleteCartProduct(item.item.id)}
-        >
+        <Button variant="outlined" size="small" onClick={(e) => deleteCartProduct(item.item.id)} >
+
           Remove
         </Button>
       </Grid>

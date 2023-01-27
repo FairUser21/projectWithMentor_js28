@@ -1,3 +1,4 @@
+
 import React from "react";
 import { LockOutlined } from "@mui/icons-material";
 import {
@@ -27,18 +28,17 @@ const Auth = () => {
     emailError,
     passwordError,
     hasAccount,
-
-    setPassword,
     setEmail,
+    setPassword,
     setHasAccount,
 
-    handleSignUp,
     handleLogin,
+    handleSignUp,
     handleLogOut,
   } = useAuth();
+
   return (
     <div>
-      {" "}
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -63,8 +63,8 @@ const Auth = () => {
                 id="email"
                 label="Email Address"
                 name="email"
-                helperText={emailError}
                 value={email}
+                helperText={emailError}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -80,12 +80,13 @@ const Auth = () => {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
-                helperText={passwordError}
                 value={password}
+                helperText={passwordError}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                autoComplete="current-password"
+
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -98,6 +99,8 @@ const Auth = () => {
                   variant="contained"
                   sx={{ mt: 3, mb: 2, backgroundColor: "green" }}
                   onClick={handleLogin}
+
+
                 >
                   Sign In
                 </Button>
@@ -105,10 +108,11 @@ const Auth = () => {
                 <Button
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2, backgroundColor: "royalblue" }}
+                  sx={{ mt: 3, mb: 2, backgroundColor: "royalBlue" }}
                   onClick={handleSignUp}
                 >
-                  Sign up
+                  Sign Up
+
                 </Button>
               )}
 
@@ -125,7 +129,9 @@ const Auth = () => {
                       variant="body2"
                       onClick={() => setHasAccount(!hasAccount)}
                     >
-                      Don't have an account? Sign Up
+                      Don't have an account? Sign Up.
+
+
                     </Link>
                   ) : (
                     <Link
@@ -133,7 +139,8 @@ const Auth = () => {
                       variant="body2"
                       onClick={() => setHasAccount(!hasAccount)}
                     >
-                      Have an account? Sign In
+                      Have an account? Sign In.
+
                     </Link>
                   )}
                 </Grid>
