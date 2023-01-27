@@ -128,8 +128,8 @@ const CartContextProvider = ({ children }) => {
   }
 
   function clearCart() {
-    localStorage.clear();
     getCart();
+    localStorage.clear();
   }
 
   let value = {

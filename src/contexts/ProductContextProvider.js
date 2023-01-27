@@ -80,7 +80,7 @@ const ProductContextProvider = ({ children }) => {
     }
   };
 
-  const fetchByParams = async (query, value) => {
+  const fetchByParams = (query, value) => {
     const search = new URLSearchParams(location.search);
     // https://github.com/typicode/json-server/?q
     if (value === "all") {
@@ -89,8 +89,6 @@ const ProductContextProvider = ({ children }) => {
       search.set(query, value);
     }
     const url = `${location.pathname}?${search.toString()}`;
-    console.log(location);
-    console.log();
     navigate(url);
     // getProducts();
   };

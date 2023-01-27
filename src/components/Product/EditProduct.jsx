@@ -6,9 +6,8 @@ import { useProduct } from "../../contexts/ProductContextProvider";
 
 const EditProduct = () => {
   const { productDetails, getProductDetails, saveEditProduct } = useProduct();
-  const [product, setProduct] = useState(productDetails);
-
   const params = useParams();
+  const [product, setProduct] = useState(productDetails);
 
   useEffect(() => {
     getProductDetails(params.id);
