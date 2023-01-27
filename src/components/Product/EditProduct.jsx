@@ -6,9 +6,8 @@ import { useProduct } from "../../contexts/ProductContextProvider";
 
 const EditProduct = () => {
   const { productDetails, getProductDetails, saveEditProduct } = useProduct();
-  const [product, setProduct] = useState(productDetails);
-
   const params = useParams();
+  const [product, setProduct] = useState(productDetails);
 
   useEffect(() => {
     getProductDetails(params.id);
@@ -21,14 +20,12 @@ const EditProduct = () => {
   const handleChange = (e) => {
     if (e.target.name === "price") {
       let obj = { ...product, [e.target.name]: Number(e.target.value) };
-      console.log(obj);
       setProduct(obj);
     } else {
       let obj = { ...product, [e.target.name]: e.target.value };
       setProduct(obj);
     }
   };
-
   return (
     <Box
       component="form"
@@ -40,7 +37,7 @@ const EditProduct = () => {
     >
       <Typography>Edit Panel</Typography>
       <TextField
-        value={product.title}
+        value={product.title || ""}
         id="outlined-basic"
         variant="outlined"
         name="title"

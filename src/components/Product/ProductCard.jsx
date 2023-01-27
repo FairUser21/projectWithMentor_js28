@@ -4,17 +4,24 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import { useCart } from "../../contexts/CartContextProvider";
 import { useProduct } from "../../contexts/ProductContextProvider";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
+  const { user } = useAuth();
+  const { addProductToCart, checkProductInCart } = useCart();
+
   const navigate = useNavigate();
   return (
-    <Card>
+    <Card sx={{ my: "10px" }}>
       <CardMedia
         component="img"
         height="140"
@@ -33,14 +40,30 @@ const ProductCard = ({ item }) => {
           {item.price}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={() => deleteProduct(item.id)}>
-          Delete
-        </Button>
-        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
-          Edit
-        </Button>
-      </CardActions>
+      {user.email === "admin@admin.com" ? (
+        <CardActions>
+          <Button size="small" onClick={() => deleteProduct(item.id)}>
+            Delete
+          </Button>
+          <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+            Edit
+          </Button>
+        </CardActions>
+      ) : (
+        <CardActions>
+          <IconButton onClick={() => addProductToCart(item)}>
+            <ShoppingCartIcon
+              color={checkProductInCart(item.id) ? "error" : ""}
+            />
+          </IconButton>
+          <Button
+            onClick={() => navigate(`/products/${item.id}`)}
+            color="error"
+          >
+            DETAILS
+          </Button>
+        </CardActions>
+      )}
     </Card>
   );
 };
