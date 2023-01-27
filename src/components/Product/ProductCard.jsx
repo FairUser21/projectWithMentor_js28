@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { useCart } from "../../contexts/CartContextProvider";
 import { useProduct } from "../../contexts/ProductContextProvider";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const ProductCard = ({ item }) => {
   const { deleteProduct } = useProduct();
@@ -51,7 +50,6 @@ const ProductCard = ({ item }) => {
           </Button>
         </CardActions>
       ) : (
-
         <CardActions>
           <IconButton onClick={() => addProductToCart(item)}>
             <ShoppingCartIcon
@@ -62,7 +60,6 @@ const ProductCard = ({ item }) => {
             DETAILS
           </Button>
         </CardActions>
-
       )}
     </Card>
   );

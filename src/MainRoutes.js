@@ -45,26 +45,22 @@ const MainRoutes = () => {
           <Route path={item.link} element={item.element} key={item.id} />
         ))}
 
-      {user
-        ? PRIVATE_ROUTES.map((item) => (
-            <Route
-              path={item.link}
-              element={
-
-                user.email === "admin@admin.com" ? (
-                  item.element
-                ) : (
-                  <Navigate replace to="*" />
-                )
-
-              }
-              key={item.id}
-            />
-          ))
-        : null}
-
+        {user
+          ? PRIVATE_ROUTES.map((item) => (
+              <Route
+                path={item.link}
+                element={
+                  user.email === "admin@admin.com" ? (
+                    item.element
+                  ) : (
+                    <Navigate replace to="*" />
+                  )
+                }
+                key={item.id}
+              />
+            ))
+          : null}
       </Route>
-
     </Routes>
   );
 };
