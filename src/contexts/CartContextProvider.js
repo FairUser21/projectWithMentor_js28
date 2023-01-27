@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useReducer } from "react";
+
 import { calcQuantity, calcSubPrice, calcTotalPrice } from "../helpers/functions";
 import { elementAcceptingRef } from "@mui/utils";
 
 export const cartContext = createContext();
-
-
 
 export const useCart = () => useContext(cartContext);
 
@@ -16,9 +15,9 @@ function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_CART":
       return { ...state, cart: action.payload };
+
       case "GET_QUANTITY":
         return { ...state, totalQuantity: action.payload };
-
     default:
       return state;
   }
@@ -49,8 +48,8 @@ const CartContextProvider = ({ children }) => {
       };
     }
 
-    setQuantity(cart.products);
 
+    setQuantity(cart.products);
 
     dispatch({
       type: "GET_CART",
@@ -86,6 +85,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     cart.totalPrice = calcTotalPrice(cart.products);
+
     setQuantity(cart.products);
 
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -106,18 +106,18 @@ const CartContextProvider = ({ children }) => {
       }
       return product;
     });
+
     cart.totalPrice = calcTotalPrice(cart.products);
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
     setQuantity(cart.products);
-
-
     dispatch({
       type: "GET_CART",
       payload: cart,
     });
   };
+
 
   function deleteCartProduct(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -125,12 +125,11 @@ const CartContextProvider = ({ children }) => {
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem("cart", JSON.stringify(cart));
     setQuantity(cart.products);
-
-
     dispatch({
       type: "GET_CART",
       payload: cart,
     });
+
   }
 
   function checkProductInCart(id){
@@ -160,9 +159,9 @@ const CartContextProvider = ({ children }) => {
     changeProductCount,
     deleteCartProduct,
     checkProductInCart,
+
     clearCart
   };
-
 
   return <cartContext.Provider value={value}>{children}</cartContext.Provider>;
 };

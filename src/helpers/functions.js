@@ -1,3 +1,4 @@
+
 export function calcTotalPrice(products){
     return products.reduce((acc, cur) => {
         return (acc += cur.subPrice);
@@ -13,4 +14,3 @@ export function calcQuantity(products) {
       return acc + +a.count;
     }, 0);
   }
-
