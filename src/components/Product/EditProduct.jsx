@@ -21,14 +21,12 @@ const EditProduct = () => {
   const handleChange = (e) => {
     if (e.target.name === "price") {
       let obj = { ...product, [e.target.name]: Number(e.target.value) };
-      console.log(obj);
       setProduct(obj);
     } else {
       let obj = { ...product, [e.target.name]: e.target.value };
       setProduct(obj);
     }
   };
-
   return (
     <Box
       component="form"
