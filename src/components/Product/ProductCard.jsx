@@ -21,7 +21,7 @@ const ProductCard = ({ item }) => {
 
   const navigate = useNavigate();
   return (
-    <Card>
+    <Card sx={{ my: "10px" }}>
       <CardMedia
         component="img"
         height="140"
@@ -53,10 +53,13 @@ const ProductCard = ({ item }) => {
         <CardActions>
           <IconButton onClick={() => addProductToCart(item)}>
             <ShoppingCartIcon
-              color={checkProductInCart(item.id) ? "primary" : ""}
+              color={checkProductInCart(item.id) ? "error" : ""}
             />
           </IconButton>
-          <Button onClick={() => navigate(`/products/${item.id}`)}>
+          <Button
+            onClick={() => navigate(`/products/${item.id}`)}
+            color="error"
+          >
             DETAILS
           </Button>
         </CardActions>

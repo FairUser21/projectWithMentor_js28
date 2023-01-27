@@ -55,7 +55,11 @@ const Home = () => {
               <Typography variant="body1" align="center" pb={8}>
                 Bang,Bang!
               </Typography>
-              <Button variant="contained" sx={{ marginBottom: 7 }}>
+              <Button
+                variant="contained"
+                color="error"
+                sx={{ marginBottom: 7 }}
+              >
                 BUY NOW
               </Button>
             </Box>
