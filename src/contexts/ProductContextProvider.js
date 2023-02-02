@@ -93,7 +93,7 @@ const ProductContextProvider = ({ children }) => {
     console.log(location);
     console.log();
     navigate(url);
-    // getProducts();
+    getProducts();
   };
 
   let value = {

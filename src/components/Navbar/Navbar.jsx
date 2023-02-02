@@ -19,7 +19,7 @@ import { useAuth } from "../../contexts/AuthContextProvider";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useCart } from "../../contexts/CartContextProvider";
 import { Grid } from "@mui/material";
-import logo from "./Logo.png";
+import logo from "./Logo1.png";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -56,7 +56,9 @@ const Navbar = () => {
   return (
     <div>
       <AppBar position="static" elevation={3}>
-        <Container maxWidth="xl" sx={{ background: "#e60a1b" }}>
+  {/* background-color: #6d253f; */}
+  {/* background-color: #6d253f; */}
+        <Container maxWidth="xll" sx={{ background: "#6d253f" }}>
           <Toolbar disableGutters>
             <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
               <img id="logo" src={logo} alt="" width="100px" />
@@ -78,7 +80,7 @@ const Navbar = () => {
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "left",
-                  color: "black",
+                  color: "green",
                 }}
                 keepMounted
                 transformOrigin={{
@@ -91,7 +93,7 @@ const Navbar = () => {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                <Box sx={{ bgcolor: "#e60a1b" }}>
+                <Box sx={{ bgcolor: "black" }}>
                   {pages.map((page) => (
                     <MenuItem key={page.id}>
                       <NavLink
@@ -130,6 +132,7 @@ const Navbar = () => {
                             my: 2,
                             color: "#ffffffb3",
                             display: "block",
+                           
                           }}
                         >
                           ADMIN
@@ -145,9 +148,11 @@ const Navbar = () => {
                             my: 2,
                             color: "black",
                             display: "block",
+                            color: "black",
                           }}
                         >
                           CART
+                          
                         </Typography>
                       </Link>
                     </MenuItem>

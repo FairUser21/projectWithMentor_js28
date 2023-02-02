@@ -18,7 +18,6 @@ const CartItem = ({ item }) => {
           src={item.item.img}
           alt={item.item.title}
         />
-
       </Grid>
       <Grid item>
         <Typography gutterBottom variant="p" component="div">
@@ -61,7 +60,6 @@ const CartItem = ({ item }) => {
           Remove
         </Button>
       </Grid>
-
     </Grid>
   );
 };

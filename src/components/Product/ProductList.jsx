@@ -44,7 +44,7 @@ const ProductList = () => {
 
   function currentData() {
     const begin = (page - 1) * 3;
-    const end = begin + 3;
+    const end = begin + 5;
     return products.slice(begin, end);
   }
 

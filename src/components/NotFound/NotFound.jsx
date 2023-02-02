@@ -6,7 +6,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material";
-import Jason from "./img/jason-momoa-jason.gif"
+// import Jason from "./img/jason-momoa-jason.gif"
 
 const theme = createTheme();
 
@@ -70,7 +70,7 @@ const NotFound = () => {
         </Typography>
       </ThemeProvider>
          {/* <img src={Image} alt="" className='img' style={{width:"21%"}}/> */}
-         <img src={Jason} alt="" style={{width:"15%"}}/>
+         {/* <img src={Jason} alt="" style={{width:"15%"}}/> */}
             
       <Typography
         theme={theme}

@@ -7,40 +7,40 @@ function UncontrolledExample() {
       <Carousel>
         <Carousel.Item>
           <img
-            style={{ maxWidth: "100vw", maxHeight: "500px" }}
+            style={{ maxWidth: "120vw", maxHeight: "700px" }}
             className="d-block w-100 "
-            src="https://avatars.mds.yandex.net/i?id=3ab1aaf125362af50d736534e69dec9bfe025b23-5362604-images-thumbs&n=13"
+            src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/all-models/m-automobile/m3-cs/2023/bmw-m3-cs-stage-teaser.png/jcr:content/renditions/cq5dam.resized.img.1680.large.time1673884311085.png"
             alt="First slide"
           />
           <Carousel.Caption>
-            <h4>AWM</h4>
+            <h4 className="bmw">BMW M3</h4>
             <p>Тип: Снайперская винтовка.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ maxWidth: "100vw", maxHeight: "500px" }}
+            style={{ maxWidth: "100vw", maxHeight: "700px" }}
             className="d-block w-100"
-            src="https://avatars.mds.yandex.net/i?id=56b2344311f84b276f9fafea416a216e0c254e3e-5208953-images-thumbs&n=13"
+            src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2022/m-sports-trophy-2022/bmw-m4-gt4-sebring-2022-stage-teaser.jpg/jcr:content/renditions/cq5dam.resized.img.1680.large.time1670842503728.jpg"
             alt="Second slide"
           />
 
           <Carousel.Caption>
-            <h4>AK-47</h4>
+            <h4>BMW M4</h4>
             <p>Штурмавая винтовка</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ maxWidth: "100vw", maxHeight: "500px" }}
+            style={{ maxWidth: "100vw", maxHeight: "700px" }}
             className="d-block w-100"
-            src="https://avatars.mds.yandex.net/i?id=4f3f7dec537f6c197b55af21c9aa0ca3cf0daa14-5864031-images-thumbs&n=13"
+            src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2023/road-to-daytona/bmw-m-hybrid-v8-daytona-recap-stage-teaser.png/jcr:content/renditions/cq5dam.resized.img.1680.large.time1675086202945.png"
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h4>SCAR</h4>
-            <p>Штурмая винтовка</p>
+            <h4>BMW M5</h4>
+            <p>65423GR</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

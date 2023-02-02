@@ -1,5 +1,11 @@
+@font-face {
+  font-family: black;
+  src: url(../src/components/assets/fonts/MajorMonoDisplay-Regular.ttf) format('ttf');
+}
+
 .App {
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
@@ -14,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #d11800;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +31,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #bde243;
 }
 
 @keyframes App-logo-spin {

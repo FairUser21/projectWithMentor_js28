@@ -21,7 +21,7 @@ import { Container } from "@mui/system";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { ExpandMore } from "@mui/icons-material";
-import logo from "../Navbar/Logo.png";
+import logo from "../Navbar/Logo1.png";
 
 const Footer = () => {
   const { user, handleLogOut } = useAuth();
@@ -36,11 +36,13 @@ const Footer = () => {
     { name: "YOUTUBE", link: "*", id: 3 },
   ];
   return (
-    <footer style={{background: "#e60a1b",}}>
+    <footer className={'fonts'}
+     style={{background: "white",}}>
       <Box
-        className="footer"
+      className={'fonts'}
+        // className="footer"
         sx={{
-          bgcolor: "#e60a1b",
+          bgcolor: "black",
           mt: "30px",
           minHeight: "250px",
           width: "100%",
@@ -68,14 +70,14 @@ const Footer = () => {
             <Box>
               {user.email ? (
                 <Button
-                  sx={{ color: "#ffffffb3", fontWeight: "bold" }}
+                  sx={{ color: "#ffffffb3", fontWeight: "brave" }}
                   onClick={handleLogOut}
                 >
                   LOGOUT
                 </Button>
               ) : (
                 <NavLink to="/auth">
-                  <Button sx={{ color: "#ffffffb3", fontWeight: "bold" }}>
+                  <Button sx={{ color: "black", fontWeight: "bold", }}>
                     LOGIN
                   </Button>
                 </NavLink>
@@ -88,14 +90,14 @@ const Footer = () => {
             sx={{
               justifyContent: "space-between",
               flexGrow: 1,
-              // display: "flex",
+              display: "flex",
               mt: "10px",
               mb: "10px",
               display: { xs: "none", sm: "flex" },
             }}
           >
             <Grid sx={{ width: "200px" }}>
-              <Typography variant="h6" sx={{color: "white"}}>PAGES</Typography>
+              <Typography variant="h6" sx={{color: "yellow"}}>PAGES</Typography>
 
               {pages.map((page) => (
                 <NavLink to={page.link}>
@@ -104,7 +106,7 @@ const Footer = () => {
                     sx={{
                       ml: "auto",
                       my: 1,
-                      color: "#ffffffb3",
+                      color: "black",
                       display: "block",
                       mb: "5px",
                     }}
@@ -115,7 +117,7 @@ const Footer = () => {
               ))}
             </Grid>
             <Grid sx={{ width: "200px" }}>
-              <Typography variant="h6" sx={{color: "white"}}>SOCIAL MEDIAS</Typography>
+              <Typography variant="h6" sx={{color: "yellow"}}>SOCIAL MEDIAS</Typography>
               {socialMedias.map((item) => (
                 <NavLink to={item.link}>
                   <Typography
@@ -123,7 +125,7 @@ const Footer = () => {
                     sx={{
                       ml: "auto",
                       my: 1,
-                      color: "#ffffffb3",
+                      color: "black",
                       display: "block",
                       mb: "5px",
                     }}
@@ -134,7 +136,7 @@ const Footer = () => {
               ))}
             </Grid>
             <Grid sx={{ width: "200px" }}>
-              <Typography variant="h6" sx={{color: "white"}}>SHOP ADDRESS</Typography>
+              <Typography variant="h6" sx={{color: "yellow"}}>BMW CENTER</Typography>
               <Typography
                 variant="body2"
                 sx={{
@@ -145,9 +147,9 @@ const Footer = () => {
                   mb: "5px",
                 }}
               >
-                улица Табышалиева, 29
+                Адрес: 327 ул. Юсупа Абдрахманова,
                 <br />
-                47/1 ул. Фучика, Бишкек
+                Бишкек 720011
               </Typography>
             </Grid>
           </Box>
@@ -158,7 +160,7 @@ const Footer = () => {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography sx={{color: "white"}}>PAGES</Typography>
+                <Typography sx={{color: "yellow"}}>PAGES</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Grid sx={{ width: "100%" }}>
@@ -169,7 +171,7 @@ const Footer = () => {
                         sx={{
                           ml: "0",
                           my: 1,
-                          color: "#ffffffb3",
+                          color: "white",
                           display: "block",
                           mb: "5px",
                         }}
@@ -216,7 +218,7 @@ const Footer = () => {
                 aria-controls="panel2a-content"
                 id="panel2a-header"
               >
-                <Typography sx={{color: "white"}}>SHOP ADDRESS</Typography>
+                <Typography sx={{color: "black"}}>BMW CENTER</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Grid sx={{ width: "200px" }}>
@@ -230,9 +232,10 @@ const Footer = () => {
                       mb: "5px",
                     }}
                   >
-                    улица Табышалиева, 29
+                     
+                     Адрес: 327 ул. Юсупа Абдрахманова,
                     <br />
-                    47/1 ул. Фучика, Бишкек
+                    Бишкек 720011
                   </Typography>
                 </Grid>
               </AccordionDetails>
@@ -241,7 +244,7 @@ const Footer = () => {
 
           <Divider white />
           <Typography sx={{ color: "white", mt: "5px"}}>
-            © 2023 Gun Shop
+            © 2023 BMW//M
           </Typography>
         </Container>
       </Box>

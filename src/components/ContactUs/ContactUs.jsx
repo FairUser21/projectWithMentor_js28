@@ -25,18 +25,19 @@ import { dark } from "@mui/material/styles/createPalette";
 const ContactUs = () => {
   return (
     <Grid container mt={5}>
-      <Grid item xs={12}>
-        {/* backgroundColor={"orange"} */}
-        <Box width={700}>
-          {/* backgroundColor={"blue"} */}
+      <Grid item xs={12} backgroundColor={"orange"}>
+        
+        <Box width={700} backgroundColor={"blue"}>
+          
           <Typography
             textAlign={"start"}
             pl={15}
             variant="h4"
             fontWeight={"900"}
             mb={2}
+            fontFamily={"sans-serif"}
           >
-            {/*fontFamily={"Roboto"}*/}
+            
             Connect With Us
           </Typography>
           <Typography
@@ -69,12 +70,12 @@ const ContactUs = () => {
           container
           display={"flex"}
           justifyContent={"center"}
-          // backgroundColor="green"
+          // backgroundColor="black"
         >
           <Box
             sx={{
               width: 800,
-              // backgroundColor: "brown",
+              backgroundColor: "brown",
               pl: 5,
             }}
           >
@@ -106,7 +107,6 @@ const ContactUs = () => {
                   />
                 </Grid>
                 <Grid>
-                  {/* backgroundColor={"#cdcd"} */}
                   <TextField
                     id="standard-basic"
                     label="Your Email"
@@ -136,7 +136,7 @@ const ContactUs = () => {
               <Grid item xs={12} mt={3}>
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: "red", color: "white" }}
+                  sx={{ backgroundColor: "#111444", color: "white" }}
                   endIcon={<SendIcon />}
                 >
                   Send Message
@@ -148,7 +148,7 @@ const ContactUs = () => {
           <Box
             sx={{
               width: 400,
-              // backgroundColor: "gray",
+              backgroundColor: "#141414",
               pl: 5,
             }}
           >
@@ -179,7 +179,7 @@ const ContactUs = () => {
                   component={"th"}
                   scope={"row"}
                 >
-                  <Typography mb={1}>makerS@kg.com</Typography>
+                  <Typography mb={1}>bmw</Typography>
                 </TableCell>
               </TableRow>
 
@@ -198,7 +198,7 @@ const ContactUs = () => {
                   component={"th"}
                   scope={"row"}
                 >
-                  <Typography mb={1}>+996 700 457 541</Typography>
+                  <Typography mb={1}>+996 708 41 31 11</Typography>
                 </TableCell>
               </TableRow>
 
