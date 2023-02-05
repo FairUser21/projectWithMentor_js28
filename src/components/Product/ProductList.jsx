@@ -51,38 +51,41 @@ const ProductList = () => {
   return (
     <Container>
       <Box>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           <Grid
             item
             sx={{ justifyContent: "center", display: "flex", flexWrap: "wrap" }}
             md={9}
           >
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                minHeight: "40vh",
-                mb: "3.5vh",
-              }}
-            >
-              {products ? (
-                currentData().map((item) => (
-                  <ProductCard item={item} key={item.id} />
-                ))
-              ) : (
-                <h2>Loading...</h2>
-              )}
-            </Box>
-
-            <Pagination
-              count={count}
-              variant="outlined"
-              shape="rounded"
-              page={page}
-              onChange={(e, p) => setPage(p)}
-            />
+            <Grid item md={12}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  minHeight: "40vh",
+                  mb: "3.5vh",
+                }}
+              >
+                {products ? (
+                  currentData().map((item) => (
+                    <ProductCard item={item} key={item.id} />
+                  ))
+                ) : (
+                  <h2>Loading...</h2>
+                )}
+              </Box>
+            </Grid>
+            <Grid item md={12}>
+              <Pagination
+                count={count}
+                variant="outlined"
+                shape="rounded"
+                page={page}
+                onChange={(e, p) => setPage(p)}
+              />
+            </Grid>
           </Grid>
-          <Grid item md={3}>
+          <Grid item md={3} marginTop="20px">
             <Paper>
               <TextField
                 id="input-with-icon-textfield"
@@ -112,19 +115,19 @@ const ProductList = () => {
                     label="all"
                   />
                   <FormControlLabel
-                    value="daily"
+                    value="flowers"
                     control={<Radio />}
-                    label="daily"
+                    label="flowers"
                   />
                   <FormControlLabel
-                    value="action"
+                    value="plants for garden"
                     control={<Radio />}
-                    label="action"
+                    label="plants for garden"
                   />
                   <FormControlLabel
-                    value="fantasy"
+                    value="plants for home"
                     control={<Radio />}
-                    label="fantasy"
+                    label="plants for home"
                   />
                 </RadioGroup>
               </FormControl>

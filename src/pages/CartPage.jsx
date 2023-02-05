@@ -4,7 +4,6 @@ import Cart from "../components/Cart/Cart";
 const CartPage = () => {
   return (
     <div>
-      CartPage
       <Cart />
     </div>
   );

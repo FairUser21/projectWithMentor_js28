@@ -1,4 +1,3 @@
-import { Home } from "@mui/icons-material";
 import React from "react";
 import Auth from "../components/Auth/Auth";
 import { useAuth } from "../contexts/AuthContextProvider";

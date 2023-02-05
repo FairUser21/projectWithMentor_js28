@@ -13,7 +13,7 @@ const Cart = () => {
 
   return (
     <>
-      <h1>My Cart</h1>
+      <h1>My Carts</h1>
       <Container>
         {cart?.products?.map((cartItem) => {
           {

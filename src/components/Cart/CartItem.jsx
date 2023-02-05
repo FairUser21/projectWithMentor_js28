@@ -7,7 +7,7 @@ const CartItem = ({ item }) => {
   const { changeProductCount, deleteCartproduct } = useCart();
 
   return (
-    <Grid container spacing={5} alignItems="center">
+    <Grid container spacing={2} alignItems="center">
       <Grid item>
         <Box
           component="img"
